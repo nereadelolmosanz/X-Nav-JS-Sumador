@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+     <style type="text/css" media="screen">
+       body{
+         padding:0;
+         margin:50px auto;
+         text-align:center;
+         font:100% Verdana;
+       }
+       h1 {
+         font-size: 1.5em;
+       }
+       #res {
+         background-color: red;
+       }
+       footer {
+         font-size: 0.75em;
+       }
+     </style>
+     <title>Ejercicio 5.5.6- Sumador aleatorio</title>
+   </head>
+   <body>
+     <h1>Sumador muy simple con sumas aleatorias - Ejercicio 5.5.6</h1>
+     <p>Adder...
+        <span id='op'>5 + 3</span>
+        <span id='res'></span> 
+        <a href="javascript:add('op','res')">Add!</a>
+     </p>
+     <p> 
+        <a href="javascript:randomNums('op','res')">New addition</a>
+     </p>
+     <footer>
+       <p>Nerea Del Olmo Sanz</p>
+     </footer>
+     <script type="text/javascript" charset="utf-8">
+       function changer (id, newValue) {
+         var element = document.getElementById(id);
+         element.innerHTML = newValue;
+       }
+       function add (opID, resID){
+         var nums = document.getElementById(opID).innerHTML.split("+");
+         var total = parseInt(nums[0]) + parseInt(nums[1]);
+         var resHTML = " = " + total;
+         changer(resID,resHTML);
+       }
+       function randomNums (opID,resID){
+         var num1 = Math.round(Math.random()*1000);
+         var num2 = Math.round(Math.random()*1000);
+         var operation = document.getElementById(opID);
+         operation.innerHTML = num1 + " + " + num2;
+       }
+     </script>
+   </body>
+</html>
